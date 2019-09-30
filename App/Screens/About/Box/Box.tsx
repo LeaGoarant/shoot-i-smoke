@@ -21,7 +21,7 @@ import cigarette from '../../../../assets/images/cigarette.png';
 import { i18n } from '../../../localization';
 import * as theme from '../../../util/theme';
 
-export function Box () {
+export function Box (): React.ReactElement {
   return (
     <View style={styles.box}>
       <View style={styles.equivalence}>

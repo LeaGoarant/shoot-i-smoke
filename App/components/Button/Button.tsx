@@ -32,7 +32,7 @@ interface ButtonProps extends TouchableOpacityProps {
   type?: 'primary' | 'secondary';
 }
 
-export function Button (props: ButtonProps) {
+export function Button (props: ButtonProps): React.ReactElement {
   const { children, icon, onPress, style, type, ...rest } = props;
 
   return (

@@ -38,10 +38,16 @@ interface CigaretteProps {
 
 const MIN_PERCENTAGE = 0.4; // The percentage of cigarette length when `percentage=0`
 
-function getCigaretteActualLength (length: number, percentage: number) {
+function getCigaretteActualLength (length: number, percentage: number): number {
   return Math.ceil(
     scale(((1 - MIN_PERCENTAGE) * percentage + MIN_PERCENTAGE) * length)
   );
+}
+
+interface CigaretteMesaure {
+  height: number,
+  margin: number,
+  width: number
 }
 
 /**
@@ -50,7 +56,7 @@ function getCigaretteActualLength (length: number, percentage: number) {
  *
  * Measures come from Figma
  */
-function getMeasures (size: CigaretteSize, percentage: number) {
+function getMeasures (size: CigaretteSize, percentage: number): CigaretteMesaure {
   switch (size) {
     case 'big': {
       return {
@@ -76,11 +82,18 @@ function getMeasures (size: CigaretteSize, percentage: number) {
   }
 }
 
+interface CigaretteStyle {
+  height: number,
+  marginTop: number,
+  marginRight: number,
+  width: number
+}
+
 function getStyle (
   orientation: CigaretteOrientation,
   percentage: number,
   size: CigaretteSize
-) {
+): CigaretteStyle | undefined {
   const { height, width, margin } = getMeasures(size, percentage);
 
   switch (orientation) {
@@ -103,7 +116,7 @@ function getStyle (
   }
 }
 
-export function Cigarette (props: CigaretteProps) {
+export function Cigarette (props: CigaretteProps): React.ReactElement {
   const { orientation, percentage, size, style } = props;
 
   return orientation === 'diagonal' ? (
@@ -132,7 +145,7 @@ function renderCigarette (
   percentage: number,
   size: CigaretteSize,
   additionalStyle?: StyleProp<ViewStyle>
-) {
+): React.ReactElement {
   return (
     <View
       style={[

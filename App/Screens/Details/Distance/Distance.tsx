@@ -25,7 +25,7 @@ interface DistanceProps {
   distance: number;
 }
 
-export function Distance (props: DistanceProps) {
+export function Distance (props: DistanceProps): React.ReactElement {
   const distanceUnit = i18n.t('distance_unit');
 
   return (

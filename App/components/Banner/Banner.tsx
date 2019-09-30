@@ -35,14 +35,15 @@ interface BannerProps {
   style?: StyleProp<ViewStyle>;
 }
 
-export function Banner ({
-  asTouchable,
-  children,
-  elevated,
-  onClick,
-  shadowPosition = 'bottom',
-  style
-}: BannerProps) {
+export function Banner (props: BannerProps): React.ReactElement {
+  const {
+    asTouchable,
+    children,
+    elevated,
+    onClick,
+    shadowPosition = 'bottom',
+    style
+  } = props;
   // FIXME any
   const Wrapper: any = asTouchable ? TouchableHighlight : View;
 

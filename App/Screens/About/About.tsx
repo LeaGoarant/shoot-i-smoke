@@ -44,32 +44,33 @@ const scrollViewOptions = {
 };
 
 export const aboutSections = {
-  about_how_results: 'about_how_results',
-  about_why_is_the_station_so_far_title: 'about_why_is_the_station_so_far_title'
+  aboutHowResults: 'aboutHowResults',
+  aboutWhyIsTheStationSoFarTitle: 'aboutWhyIsTheStationSoFarTitle'
 };
 
-const handleOpenAmaury = () =>
+const handleOpenAmaury = (): void => {
   Linking.openURL('https://twitter.com/amaurymartiny');
+};
 
-const handleOpenAqi = () => Linking.openURL('http://aqicn.org/');
+const handleOpenAqi = (): void => { Linking.openURL('http://aqicn.org/'); };
 
-const handleOpenArticle = () =>
+const handleOpenArticle = (): void => {
   Linking.openURL(
     'http://berkeleyearth.org/air-pollution-and-cigarette-equivalence/'
   );
+};
 
-const handleOpenGithub = () =>
+const handleOpenGithub = (): void => {
   Linking.openURL(Constants.manifest.extra.githubUrl);
+};
 
-const handleOpenMarcelo = () =>
+const handleOpenMarcelo = (): void => {
   Linking.openURL('https://www.behance.net/marceloscoelho');
+};
 
-interface AboutProps
-  extends NavigationInjectedProps<{
-    scrollInto?: keyof typeof aboutSections;
-  }> {}
+type AboutProps = NavigationInjectedProps<{ scrollInto?: keyof typeof aboutSections; }>
 
-export function About (props: AboutProps) {
+export function About (props: AboutProps): React.ReactElement {
   const { navigation } = props;
 
   trackScreen('ABOUT');
@@ -80,7 +81,7 @@ export function About (props: AboutProps) {
       style={theme.withPadding}
     >
       <BackButton
-        onPress={() => navigation.goBack()}
+        onPress={(): void => { navigation.goBack(); }}
         style={styles.backButton}
       />
 
@@ -131,7 +132,7 @@ export function About (props: AboutProps) {
       <ScrollIntoView
         onMount={
           navigation.getParam('scrollInto') ===
-          'about_why_is_the_station_so_far_title'
+          'aboutWhyIsTheStationSoFarTitle'
         }
         style={styles.section}
       >
@@ -155,7 +156,7 @@ export function About (props: AboutProps) {
       </View>
 
       <ScrollIntoView
-        onMount={navigation.getParam('scrollInto') === 'about_how_results'}
+        onMount={navigation.getParam('scrollInto') === 'aboutHowResults'}
         style={styles.section}
       >
         <Text style={styles.h2}>HELLO</Text>

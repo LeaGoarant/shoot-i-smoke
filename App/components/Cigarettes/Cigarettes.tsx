@@ -27,7 +27,7 @@ interface CigarettesProps {
 
 export { CIGARETTES_HEIGHT };
 
-export function Cigarettes (props: CigarettesProps) {
+export function Cigarettes (props: CigarettesProps): React.ReactElement {
   const { cigarettes: realCigarettes } = props;
   const cigarettes = Math.round(Math.min(realCigarettes, 50) * 10) / 10; // We don't show more than 50
   // const cigarettes = 1.9; // Can change values here for testing
@@ -43,7 +43,7 @@ export function Cigarettes (props: CigarettesProps) {
       <View style={styles.innerContainer}>
         {cigarettes > 1 &&
           count >= 1 &&
-          Array.from(Array(count)).map((_, i) => (
+          Array.from(Array(count)).map((_, i): React.ReactElement => (
             <Cigarette
               key={i}
               orientation={orientation}

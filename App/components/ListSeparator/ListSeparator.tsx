@@ -19,7 +19,7 @@ import { StyleSheet, View } from 'react-native';
 
 import * as theme from '../../util/theme';
 
-export function ListSeparator () {
+export function ListSeparator (): React.ReactElement {
   return <View style={styles.separator} />;
 }
 

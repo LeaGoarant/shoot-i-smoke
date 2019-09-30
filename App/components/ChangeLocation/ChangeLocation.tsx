@@ -28,9 +28,7 @@ import { i18n } from '../../localization';
 import * as theme from '../../util/theme';
 import changeLocation from '../../../assets/images/changeLocation.png';
 
-interface ChangeLocationProps extends TouchableOpacityProps {}
-
-export function ChangeLocation (props: ChangeLocationProps) {
+export function ChangeLocation (props: TouchableOpacityProps): React.ReactElement {
   const { onPress, ...rest } = props;
 
   return (

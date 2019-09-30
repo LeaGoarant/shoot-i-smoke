@@ -35,7 +35,7 @@ interface BackButtonProps {
   style?: StyleProp<ViewStyle>; // FIXME any
 }
 
-export function BackButton (props: BackButtonProps) {
+export function BackButton (props: BackButtonProps): React.ReactElement {
   const { style } = props;
 
   return (

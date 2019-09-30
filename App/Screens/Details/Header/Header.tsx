@@ -38,7 +38,7 @@ interface HeaderProps {
   onBackClick: (event: GestureResponderEvent) => void;
 }
 
-export function Header (props: HeaderProps) {
+export function Header (props: HeaderProps): React.ReactElement {
   const { onBackClick } = props;
   const { api } = useContext(ApiContext);
   const { currentLocation } = useContext(CurrentLocationContext);

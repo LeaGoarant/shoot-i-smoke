@@ -22,10 +22,10 @@ import * as names from './names.json';
 import { ApiContext } from '../../../stores';
 import * as theme from '../../../util/theme';
 
-export function Language () {
+export function Language (): React.ReactElement {
   const { reloadApp } = useContext(ApiContext);
 
-  const handleValueChange = (itemValue: string) => {
+  const handleValueChange = (itemValue: string): void => {
     i18n.locale = itemValue;
 
     // Reload app for changes to take effect
@@ -43,7 +43,7 @@ export function Language () {
         selectedValue={i18n.locale}
         style={styles.picker}
       >
-        {Object.keys(i18n.translations).map(lang => (
+        {Object.keys(i18n.translations).map((lang): React.ReactElement => (
           <Picker.Item key={lang} label={names[lang].nativeName} value={lang} />
         ))}
       </Picker>
